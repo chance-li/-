@@ -1,0 +1,13 @@
+<view class="container">
+	<scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="true">
+		<block wx:for="{{navData}}" wx:key="index">
+			<view id="nav-item{{index}}" class="nav-item {{currentTab == index ?'active':''}}" data-current="{{index}}" bindtap="navClick"><text id="nav-text{{index}}">{{item.title}}</text></view>
+		</block>
+    <view class="nav-border" style="left:{{borderLeft}}px;width:{{borderWidth}}px"></view>
+	</scroll-view>
+	<swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="swiperChange" bindtransition="transitionChange" bindanimationfinish="animationfinish">
+		<swiper-item wx:for="{{navData}}" wx:key="index" class="tab-content">
+			{{item.title}}
+		</swiper-item>
+	</swiper>
+</view>

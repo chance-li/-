@@ -1,0 +1,25 @@
+
+<view class="container {{open ? 'open' : 'close'}}">
+	<view class="sideBar">侧边栏</view>
+	<view class="wrap" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="{{translate}}">
+		<view class="appBar">导航栏</view>
+		<view class="titleBar">标题栏</view>
+		<view class="page-top"><view bindtap="tap_ch">展开</view></view>
+		<view class='tabBar'>
+			<view wx:for="{{tabList}}" wx:key="*this" class="item {{tabIndex==index?'current':''}}" data-index='{{index}}' bindtap='tabClick'>{{item}}</view>
+			<view class="tabBorder" style="left: {{sliderLeft}}px; width:50px;"></view>
+		</view>
+		<!-- <view class="tabPage">
+			<view class="item" wx:for="{{tabList}}" wx:key="*this" style="position:{{tabIndex == index ? 'relative' : 'absolute'}};transform: translate({{index*100}}%, 0px);">
+				<view style="height:{{500*(index+1)}}rpx;background:#bbb;">标签页{{index+1}}</view>
+			</view>
+		</view> -->
+		<!-- <swiper class="tabPage" bindtransition="transitionChange" bindanimationfinish="animationFinish" current="{{tabIndex}}" data-index='{{tabIndex}}'>
+			<swiper-item class="item" wx:for="{{tabList}}" wx:key="*this" style="position:{{tabIndex == index ? 'relative' : 'absolute'}}!important">
+				<scroll-view scroll-y="true" style="height:100%;">
+					<view style="height:{{500*(index+1)}}rpx;background:#bbb;">标签页{{index+1}}</view>
+				</scroll-view>
+			</swiper-item>
+		</swiper> -->
+	</view>
+</view>
